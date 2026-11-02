@@ -1,0 +1,254 @@
+/* ===== Resume.V2Site: (Cyberpunk-inspired) ===== */
+:root {
+  --bg: #07070d;
+  --panel: #0e0e1a;
+  --panelEdge: rgba(0, 240, 255, 0.35);
+  --yellow: #fcee0a;
+  --cyan: #00f0ff;
+  --pink: #ff2a6d;
+  --text: #e8e8f2;
+  --muted: #8b8ba6;
+  --fontHead: "Orbitron", "Rajdhani", sans-serif;
+  --fontBody: "Rajdhani", "Segoe UI", sans-serif;
+  --fontMono: "Share Tech Mono", Consolas, monospace;
+  --cut: 18px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--fontBody);
+  font-size: 1.05rem;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+/* CRT scanlines */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.18) 0, rgba(0, 0, 0, 0.18) 1px, transparent 1px, transparent 3px);
+  z-index: 100;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+/* ---------- Header ---------- */
+.siteHeader {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 40px;
+  background: rgba(7, 7, 13, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 2px solid var(--yellow);
+  box-shadow: 0 4px 24px rgba(252, 238, 10, 0.12);
+}
+.brand { display: flex; align-items: center; gap: 22px; }
+.brandName {
+  font-family: var(--fontHead);
+  font-weight: 900;
+  font-size: 1.35rem;
+  letter-spacing: 0.08em;
+  color: var(--yellow);
+  text-shadow: 2px 0 var(--pink), -2px 0 var(--cyan);
+}
+.brandTag { font-family: var(--fontMono); font-size: 0.8rem; color: var(--cyan); letter-spacing: 0.12em; text-transform: uppercase; }
+
+.mainNav { display: flex; gap: 6px; }
+.mainNav a {
+  font-family: var(--fontMono);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.mainNav a:hover { color: var(--cyan); border-color: var(--cyan); }
+.mainNav a.isActive { color: #000; background: var(--yellow); border-color: var(--yellow); }
+
+/* ---------- Buttons ---------- */
+.btnCyber {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--yellow);
+  color: #000;
+  font: 700 0.95rem var(--fontHead);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 0;
+  cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  transition: background 0.2s, transform 0.2s, filter 0.2s;
+}
+.btnCyber:hover { background: var(--cyan); transform: translateY(-2px); filter: drop-shadow(0 0 10px var(--cyan)); }
+.btnGhost { background: transparent; color: var(--cyan); box-shadow: inset 0 0 0 2px var(--cyan); }
+.btnGhost:hover { background: var(--cyan); color: #000; }
+.btnRow { display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* ---------- Titles ---------- */
+.sectionTitle {
+  position: relative;
+  font-family: var(--fontHead);
+  font-weight: 900;
+  font-size: clamp(1.8rem, 4.5vw, 3rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  text-align: center;
+  margin-bottom: 14px;
+}
+.sectionTitle::before { content: "// "; color: var(--pink); }
+.sectionSub { font-family: var(--fontMono); text-align: center; color: var(--muted); margin-bottom: 56px; letter-spacing: 0.08em; }
+
+/* ---------- Glitch system ---------- */
+/* Hero name and any text wrapped in <span class="glitch" data-text="same text"> */
+.glitch {
+  position: relative;
+  display: inline-block;
+  text-shadow: 1px 0 rgba(255, 42, 109, 0.55), -1px 0 rgba(0, 240, 255, 0.55);
+  animation: glitchBoot 0.9s steps(1) 1, glitchShake 2.4s steps(1) 0.9s infinite;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.glitch::before { color: var(--pink); transform: translate(0, 0); clip-path: inset(0 0 100% 0); animation: glitchTop 1.7s infinite steps(1); }
+.glitch::after { color: var(--cyan); transform: translate(0, 0); clip-path: inset(100% 0 0 0); animation: glitchBottom 2.3s infinite steps(1); }
+
+/* Calmer version for secondary text */
+.glitchSoft { animation: glitchShakeSoft 4.2s steps(1) infinite; }
+.glitchSoft::before { animation-duration: 3.4s; }
+.glitchSoft::after { animation-duration: 4.6s; }
+
+@keyframes glitchBoot {
+  0% { transform: translate(-8px, 0) skewX(12deg); filter: hue-rotate(90deg); opacity: 0.4; }
+  10% { transform: translate(6px, -2px) skewX(-10deg); opacity: 1; }
+  20% { transform: translate(-4px, 1px); filter: none; opacity: 0.6; }
+  30% { transform: translate(5px, 0) skewX(8deg); opacity: 1; }
+  40% { transform: none; filter: hue-rotate(-60deg); }
+  55% { transform: translate(-3px, 0); }
+  70%, 100% { transform: none; filter: none; }
+}
+@keyframes glitchShake {
+  0%, 100% { transform: none; filter: none; }
+  18% { transform: translate(-3px, 1px) skewX(-8deg); }
+  19% { transform: none; }
+  34% { transform: translate(4px, 0) skewX(10deg); filter: hue-rotate(40deg); }
+  35% { transform: none; filter: none; }
+  36% { transform: translate(-2px, 0); }
+  37% { transform: none; }
+  62% { transform: translate(2px, -1px) skewX(6deg); }
+  63% { transform: none; }
+  79% { transform: translate(-6px, 0) skewX(-14deg); filter: hue-rotate(-40deg); }
+  80% { transform: translate(5px, 0) skewX(12deg); }
+  81% { transform: none; filter: none; }
+}
+@keyframes glitchShakeSoft {
+  0%, 100% { transform: none; }
+  30% { transform: translate(-2px, 0) skewX(-5deg); }
+  31% { transform: none; }
+  74% { transform: translate(3px, 0) skewX(6deg); }
+  75% { transform: none; }
+}
+@keyframes glitchTop {
+  0%, 6%, 13%, 44%, 74%, 91%, 100% { transform: translate(0, 0); clip-path: inset(0 0 100% 0); }
+  7% { transform: translate(-7px, -2px); clip-path: inset(8% 0 62% 0); }
+  9% { transform: translate(8px, 1px); clip-path: inset(38% 0 30% 0); }
+  11% { transform: translate(-3px, 0); clip-path: inset(20% 0 55% 0); }
+  38% { transform: translate(-5px, 0); clip-path: inset(20% 0 48% 0); }
+  41% { transform: translate(6px, 0); clip-path: inset(50% 0 20% 0); }
+  66% { transform: translate(9px, -1px); clip-path: inset(4% 0 72% 0); }
+  68% { transform: translate(-8px, 0); clip-path: inset(30% 0 40% 0); }
+  71% { transform: translate(4px, 1px); clip-path: inset(12% 0 58% 0); }
+  86% { transform: translate(-10px, 2px); clip-path: inset(30% 0 38% 0); }
+  88% { transform: translate(10px, -2px); clip-path: inset(10% 0 60% 0); }
+}
+@keyframes glitchBottom {
+  0%, 12%, 19%, 56%, 81%, 100% { transform: translate(0, 0); clip-path: inset(100% 0 0 0); }
+  13% { transform: translate(7px, 2px); clip-path: inset(60% 0 8% 0); }
+  15% { transform: translate(-8px, -1px); clip-path: inset(35% 0 40% 0); }
+  17% { transform: translate(4px, 0); clip-path: inset(48% 0 22% 0); }
+  50% { transform: translate(6px, 0); clip-path: inset(48% 0 22% 0); }
+  53% { transform: translate(-6px, 1px); clip-path: inset(70% 0 6% 0); }
+  76% { transform: translate(-9px, 1px); clip-path: inset(70% 0 4% 0); }
+  78% { transform: translate(9px, -1px); clip-path: inset(40% 0 35% 0); }
+}
+
+/* ---------- Panels ---------- */
+.panel {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--panelEdge);
+  padding: 32px 36px;
+  clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut)));
+  box-shadow: inset 0 0 40px rgba(0, 240, 255, 0.05);
+}
+.panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 3px;
+  background: var(--yellow);
+}
+.panelLabel { font-family: var(--fontMono); font-size: 0.75rem; color: var(--pink); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px; }
+
+.chip {
+  display: inline-block;
+  padding: 3px 12px;
+  font: 0.75rem var(--fontMono);
+  letter-spacing: 0.08em;
+  color: var(--cyan);
+  border: 1px solid var(--cyan);
+  text-transform: uppercase;
+}
+
+/* ---------- Footer ---------- */
+.siteFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 28px 40px;
+  border-top: 1px solid var(--panelEdge);
+  background: rgba(14, 14, 26, 0.9);
+  font-family: var(--fontMono);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+}
+.siteFooter .footBlock span { display: block; color: var(--pink); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; }
+.footGroup { display: flex; gap: 48px; flex-wrap: wrap; }
+
+/* ---------- Motion ---------- */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.isVisible { opacity: 1; transform: none; }
+body.pageEnter { animation: pageIn 0.5s ease both; }
+body.pageLeave { animation: pageOut 0.3s ease both; }
+@keyframes pageIn { from { opacity: 0; transform: translateY(12px); filter: hue-rotate(40deg); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes pageOut { to { opacity: 0; transform: translateY(-12px); filter: hue-rotate(-40deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
