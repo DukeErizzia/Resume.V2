@@ -1,114 +1,74 @@
-<a name="readme-top">
+# Resume.V2Site
 
-<br/>
+## Table of Contents
 
-<br />
-<div align="center">
-  <a href="https://github.com/zyx-0314/">
-  <!-- TODO: If you want to add logo or banner you can add it here -->
-    <img src="./assets/img/nyebe_white.png" alt="Nyebe" width="130" height="100">
-  </a>
-<!-- TODO: Change Title to the name of the title of your Project -->
-  <h3 align="center">Title</h3>
-</div>
-<!-- TODO: Make a short description -->
-<div align="center">
-  Short Description. (Optional)
-</div>
-
-<br />
-
-<!-- TODO: Change the zyx-0314 into your github username  -->
-<!-- TODO: Change the WD-Template-Project into the same name of your folder -->
-![](https://visit-counter.vercel.app/counter.png?page=zyx-0314/WD-Template-Project)
-
-[![wakatime](https://wakatime.com/badge/user/018dd99a-4985-4f98-8216-6ca6fe2ce0f8/project/63501637-9a31-42f0-960d-4d0ab47977f8.svg)](https://wakatime.com/badge/user/018dd99a-4985-4f98-8216-6ca6fe2ce0f8/project/63501637-9a31-42f0-960d-4d0ab47977f8)
-
----
-
-<br />
-<br />
-
-<!-- TODO: If you want to add more layers for your readme -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#overview">Overview</a>
-      <ol>
-        <li>
-          <a href="#key-components">Key Components</a>
-        </li>
-        <li>
-          <a href="#technology">Technology</a>
-        </li>
-      </ol>
-    </li>
-    <li>
-      <a href="#rule,-practices-and-principles">Rules, Practices and Principles</a>
-    </li>
-    <li>
-      <a href="#resources">Resources</a>
-    </li>
-  </ol>
-</details>
-
----
+1. [Overview](#overview)
+   1. [Key Components](#key-components)
+   2. [Technology](#technology)
+2. [Rules, Practices and Principles](#rules-practices-and-principles)
+3. [Resources](#resources)
 
 ## Overview
 
-<!-- TODO: To be changed -->
-<!-- The following are just sample -->
-Description of the project in details.
+**What is the project?**
+A multi-page personal resume website for David Miguel D. Agruda in a cyberpunk (Edgerunners-inspired) theme. The landing page (Home) links to three pages: About, Skills & Projects, and Contact.
 
-Guiding Question:
-- What is the project
-- Whats the purpose
-- What are key components
-- What technology used and how it is used
+**What is the purpose?**
+To present education, tech stack, projects, and contact details in one shareable site, based on the single-page resume at <https://dukeerizzia.github.io/Resume/>.
+
+**What are the key components?**
+See below.
+
+**What technology is used and how?**
+See below.
 
 ### Key Components
-<!-- TODO: List of Key Components -->
-<!-- The following are just sample -->
-- MultiPage Website/Single Page Website
-- Parallax transition
-- Transactional
+
+* **Multi-page website**
+  * `index.html`: Home (landing page with buttons to every page)
+  * `pages/about/index.html`: Page 1, About (profile, education, achievements, printable resume)
+  * `pages/skillsProjects/index.html`: Page 2, Skills and Projects (tech stack, filterable projects)
+  * `pages/contact/index.html`: Page 3, Contact
+* **Parallax transition**: elements marked `data-parallax="speed"` drift at a different rate than the scroll (`assets/js/script.js`).
+* **Transactional**: the contact form validates its fields and hands the message to the visitor's mail app (`mailto:`), so no backend is required.
+* **Cyberpunk theme**: neon yellow/cyan/pink palette, cut-corner panels, scanlines, glitch text, and glitch-fade page transitions.
 
 ### Technology
-<!-- TODO: List of Technology Used -->
-![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white)
+
+| Tech | Use |
+| --- | --- |
+| HTML5 | Page structure and semantic markup |
+| CSS3 (external only) | CSS variables, grid/flexbox, clip-path panels, animations, print styles |
+| JavaScript (ES6) | Mobile menu, page transitions, parallax, scroll reveal, project filter, form validation |
+| Google Fonts | Orbitron, Rajdhani, Share Tech Mono |
 
 ## Rules, Practices and Principles
-1. Always use `WD-` in the front of the Title of the Project for the Subject followed by your custom naming.
-2. Do not rename any .html files; always use `index.html` as the filename.
-3. Place Files in their respective folders.
-4. All file naming are in camel case.
-   - Camel case is naming format where there is no white space in separation of each words, the first word is in all lower case while the succeding words first letter are in upper followed by lower cased letters.
-   - ex.: buttonAnimatedStyle.css
-5. Use only `External CSS`.
-6. Renaming of Pages folder names are a must, and relates to what it is doing or data it holding.
-7. File Structure to follow below.
+
+1. Do not rename any `.html` files; always use `index.html`.
+2. Place files in their respective folders.
+3. All file names are in camelCase (example: `buttonAnimatedStyle.css`).
+4. Use only external CSS.
+5. Page folder names describe what the page does or holds.
+6. Follow the file structure below.
 
 ```
-WD-ProjectName
+WD-ResumeSite
 └─ assets
 |   └─ css
 |   |   └─ style.css
 |   └─ img
-|   |   └─ fileWith.jpeg/.jpg/.webp/.png
+|   |   └─ photo.jpg   (add your own photo here)
 |   └─ js
 |       └─ script.js
 └─ pages
-|  └─ pageName
-|     └─ assets
-|     |  └─ css
-|     |  |  └─ style.css
-|     |  └─ img
-|     |  |  └─ fileWith.jpeg/.jpg/.webp/.png
-|     |  └─ js
-|     |     └─ script.js
+|  └─ about
+|  |  └─ assets (css/style.css, img, js/script.js)
+|  |  └─ index.html
+|  └─ skillsProjects
+|  |  └─ assets (css/style.css, img, js/script.js)
+|  |  └─ index.html
+|  └─ contact
+|     └─ assets (css/style.css, img, js/script.js)
 |     └─ index.html
 └─ index.html
 └─ readme.md
@@ -116,7 +76,6 @@ WD-ProjectName
 
 ## Resources
 
-<!-- TODO: Add References -->
-| Title | Purpose | Link |
-|-|-|-|
-| Sample Title | Sample purpose would be here like this and this is the example of what it is. | trykolang.com |
+* Reference resume: <https://dukeerizzia.github.io/Resume/>
+* Fonts: [Google Fonts](https://fonts.google.com/)
+* MDN Web Docs: <https://developer.mozilla.org/>
