@@ -1,5 +1,6 @@
 /* ===== Skills & Projects page ===== */
 .sectionBlock { margin-bottom: 90px; }
+.sectionBlock:last-child { margin-bottom: 0; }
 .blockTitle { font-family: var(--fontHead); font-size: 1.4rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 26px; }
 .blockTitle::before { content: "[ "; color: var(--pink); }
 .blockTitle::after { content: " ]"; color: var(--pink); }
