@@ -27,6 +27,8 @@ body {
   background-size: 48px 48px;
   line-height: 1.6;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
 }
 /* CRT scanlines */
@@ -236,7 +238,7 @@ ul { list-style: none; }
 }
 
 /* ---------- Layout ---------- */
-.pageSection { max-width: 1040px; margin: 0 auto; padding: 80px 24px 100px; }
+.pageSection { flex: 1; width: 100%; max-width: 1040px; margin: 0 auto; padding: 80px 24px 100px; }
 
 /* ---------- Home ---------- */
 .hero { position: relative; overflow: hidden; padding: 90px 24px 70px; }
@@ -287,9 +289,9 @@ ul { list-style: none; }
   margin: 10px 0 22px;
 }
 .heroText .lead { font-size: 1.3rem; margin-bottom: 18px; }
-.heroText .bio { color: var(--muted); margin-bottom: 28px; max-width: 560px; }
+.heroText .bio { color: var(--muted); margin-bottom: 28px; max-width: 560px; } 
 
-.navCards { max-width: 1040px; margin: 0 auto; padding: 0 24px 100px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.navCards { width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 24px 100px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .navCard { display: block; transition: transform 0.25s, filter 0.25s; }
 .navCard:hover { transform: translateY(-6px); filter: drop-shadow(0 0 14px rgba(0, 240, 255, 0.55)); }
 .navCard .num { font: 900 2.6rem var(--fontHead); color: var(--pink); line-height: 1; }

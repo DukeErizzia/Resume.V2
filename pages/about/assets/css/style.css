@@ -1,0 +1,42 @@
+/* ===== About page ===== */
+.aboutGrid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 28px; align-items: start; }
+.stack { display: grid; gap: 28px; }
+
+.panel h3 { font-family: var(--fontHead); font-size: 1.05rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--yellow); margin-bottom: 14px; }
+.panel li { margin-bottom: 6px; }
+.panel li::before { content: "> "; color: var(--pink); font-family: var(--fontMono); }
+
+.timeline { position: relative; border-left: 2px solid var(--cyan); margin-left: 6px; padding-left: 28px; }
+.timelineItem { position: relative; padding-bottom: 28px; }
+.timelineItem:last-child { padding-bottom: 0; }
+.timelineItem::before {
+  content: "";
+  position: absolute;
+  left: -37px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  background: var(--bg);
+  border: 2px solid var(--yellow);
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px var(--yellow);
+}
+.timelineDate { font-family: var(--fontMono); color: var(--pink); font-size: 0.85rem; letter-spacing: 0.12em; }
+.timelineTitle { font-family: var(--fontHead); font-size: 1.05rem; letter-spacing: 0.05em; margin: 2px 0; }
+.timelineOrg { color: var(--cyan); font-weight: 600; }
+.timelineNote { color: var(--muted); font-size: 0.95rem; margin-top: 4px; }
+
+.achieveList li::before { content: "★ "; color: var(--yellow); font-family: inherit; }
+
+.certify { margin-top: 36px; text-align: center; font-family: var(--fontMono); font-size: 0.8rem; color: var(--muted); }
+.actionRow { display: flex; justify-content: center; margin-top: 40px; }
+
+@media (max-width: 860px) { .aboutGrid { grid-template-columns: 1fr; } }
+
+@media print {
+  body { background: #fff; color: #000; }
+  body::after, .siteHeader, .siteFooter, .actionRow { display: none; }
+  .panel { clip-path: none; border: 1px solid #999; background: #fff; box-shadow: none; }
+  .panel h3, .timelineDate, .timelineOrg { color: #000; }
+  .reveal { opacity: 1; transform: none; }
+}

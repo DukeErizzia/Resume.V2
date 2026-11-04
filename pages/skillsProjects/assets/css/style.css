@@ -1,0 +1,30 @@
+/* ===== Skills & Projects page ===== */
+.sectionBlock { margin-bottom: 90px; }
+.sectionBlock:last-child { margin-bottom: 0; }
+.blockTitle { font-family: var(--fontHead); font-size: 1.4rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 26px; }
+.blockTitle::before { content: "[ "; color: var(--pink); }
+.blockTitle::after { content: " ]"; color: var(--pink); }
+
+/* Tech stack */
+.stackGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.stackGroup h3 { font-family: var(--fontHead); font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--yellow); margin-bottom: 18px; }
+.skillRow { margin-bottom: 16px; }
+.skillRow .skillHead { display: flex; justify-content: space-between; font-family: var(--fontMono); font-size: 0.85rem; letter-spacing: 0.08em; margin-bottom: 6px; }
+.skillRow .skillHead b { color: var(--cyan); font-weight: 400; }
+.bar { height: 8px; background: rgba(255, 255, 255, 0.08); position: relative; overflow: hidden; }
+.bar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--pink), var(--yellow));
+  box-shadow: 0 0 12px var(--pink);
+  transition: width 1.1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.isVisible .bar span { width: var(--level); }
+
+.softList { display: flex; flex-wrap: wrap; gap: 10px; }
+.softSkills { grid-column: 1 / -1; }
+
+@media (max-width: 900px) {
+  .stackGrid { grid-template-columns: 1fr; }
+}
