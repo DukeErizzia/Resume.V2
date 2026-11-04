@@ -52,7 +52,7 @@ See below.
 6. Follow the file structure below.
 
 ```
-WD-ResumeSite
+Resume.V2Site
 └─ assets
 |   └─ css
 |   |   └─ style.css
@@ -62,13 +62,13 @@ WD-ResumeSite
 |       └─ script.js
 └─ pages
 |  └─ about
-|  |  └─ assets (css/style.css, img, js/script.js)
+|  |  └─ assets (css/style.css, img, js/about.js)
 |  |  └─ index.html
 |  └─ skillsProjects
-|  |  └─ assets (css/style.css, img, js/script.js)
+|  |  └─ assets (css/style.css, img, js/skillsProjects.js)
 |  |  └─ index.html
 |  └─ contact
-|     └─ assets (css/style.css, img, js/script.js)
+|     └─ assets (css/style.css, img, js/contact.js)
 |     └─ index.html
 └─ index.html
 └─ readme.md
