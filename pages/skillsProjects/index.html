@@ -63,6 +63,40 @@
         </div>
       </div>
     </section>
+ 
+  <!-- Projects -->
+    <section class="sectionBlock">
+      <h2 class="blockTitle reveal">Featured Projects</h2>
+      <div class="filterRow reveal" role="group" aria-label="Filter projects">
+        <button class="filterBtn isActive" data-filter="all" type="button">All</button>
+        <button class="filterBtn" data-filter="frontend" type="button">Front-End</button>
+        <button class="filterBtn" data-filter="backend" type="button">Back-End</button>
+      </div>
+
+      <div class="projectGrid">
+        <article class="panel project reveal" data-category="frontend">
+          <span class="projectNum">01</span>
+          <h3>Aemeath Wiki Webpage</h3>
+          <p>Front-end fan wiki for Aemeath from Wuthering Waves, with dynamic character stats lookup, build configurations and interactive skill tabs.</p>
+          <div class="tagRow"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
+        </article>
+
+        <article class="panel project reveal" data-category="frontend">
+          <span class="projectNum">02</span>
+          <h3>Neon Arcade Web Game</h3>
+          <p>Retro-themed arcade game on the HTML5 Canvas API with dynamic scoring, keyboard controls, collision detection and keyframe animations.</p>
+          <div class="tagRow"><span class="chip">JavaScript</span><span class="chip">Canvas</span><span class="chip">CSS</span></div>
+        </article>
+
+        <article class="panel project reveal" data-category="backend">
+          <span class="projectNum">03</span>
+          <h3>Gym Management System</h3>
+          <p>Desktop app in IntelliJ IDEA using Java and JavaFX/CSS3 with a MySQL database for member registration, membership sales and check-ins.</p>
+          <div class="tagRow"><span class="chip">Java</span><span class="chip">JavaFX</span><span class="chip">MySQL</span></div>
+        </article>
+      </div>
+      <p class="emptyNote" id="emptyNote">&gt; No projects found in this category.</p>
+    </section>
   </main>
 
   <footer class="siteFooter">
@@ -75,6 +109,6 @@
 
   <script src="../../assets/js/script.js"></script>
   <script src="assets/js/skillsProjects.js"></script>
-
+  
 </body>
 </html>

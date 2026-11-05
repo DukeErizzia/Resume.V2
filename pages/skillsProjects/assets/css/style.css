@@ -22,9 +22,37 @@
 }
 .isVisible .bar span { width: var(--level); }
 
+/* Filters */
+.filterRow { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
+.filterBtn {
+  background: transparent;
+  color: var(--cyan);
+  border: 1px solid var(--cyan);
+  padding: 8px 20px;
+  font: 0.85rem var(--fontMono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.filterBtn:hover { background: rgba(0, 240, 255, 0.15); }
+.filterBtn.isActive { background: var(--yellow); border-color: var(--yellow); color: #000; }
+
+/* Projects */
+.projectGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.project { display: flex; flex-direction: column; gap: 12px; }
+.project.isHidden { display: none; }
+.project .projectNum { font: 900 2rem var(--fontHead); color: var(--pink); line-height: 1; }
+.project h3 { font-family: var(--fontHead); font-size: 1.05rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--yellow); }
+.project p { color: var(--muted); font-size: 0.97rem; flex: 1; }
+.tagRow { display: flex; flex-wrap: wrap; gap: 8px; }
+.emptyNote { display: none; font-family: var(--fontMono); color: var(--pink); text-align: center; padding: 30px 0; }
+.emptyNote.isShown { display: block; }
+
 .softList { display: flex; flex-wrap: wrap; gap: 10px; }
 .softSkills { grid-column: 1 / -1; }
 
 @media (max-width: 900px) {
   .stackGrid { grid-template-columns: 1fr; }
+  .projectGrid { grid-template-columns: 1fr; }
 }

@@ -1,0 +1,37 @@
+/* ===== Contact page ===== */
+.contactLayout { display: grid; grid-template-columns: 1.5fr 1fr; gap: 28px; align-items: start; }
+.formPanel { padding: 40px 44px; }
+.formRow { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.field { display: flex; flex-direction: column; margin-bottom: 26px; }
+.field label { font-family: var(--fontMono); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cyan); margin-bottom: 8px; }
+.field label .req { color: var(--pink); }
+.field input,
+.field textarea {
+  background: rgba(0, 240, 255, 0.04);
+  color: var(--text);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  border-left: 3px solid var(--yellow);
+  padding: 12px 14px;
+  font: 1rem var(--fontBody);
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.field input:focus,
+.field textarea:focus { border-color: var(--cyan); box-shadow: 0 0 14px rgba(0, 240, 255, 0.35); }
+.field.hasError input,
+.field.hasError textarea { border-color: var(--pink); box-shadow: 0 0 12px rgba(255, 42, 109, 0.35); }
+.errorText { color: var(--pink); font: 0.75rem var(--fontMono); min-height: 1em; margin-top: 6px; }
+
+.formActions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.formStatus { font-family: var(--fontMono); font-size: 0.85rem; color: var(--yellow); }
+
+.infoPanel .infoItem { margin-bottom: 20px; }
+.infoPanel .infoItem span { display: block; font: 0.7rem var(--fontMono); letter-spacing: 0.2em; text-transform: uppercase; color: var(--pink); }
+.infoPanel .infoItem a:hover { color: var(--cyan); }
+
+@media (max-width: 900px) { .contactLayout { grid-template-columns: 1fr; } }
+@media (max-width: 600px) {
+  .formPanel { padding: 28px 22px; }
+  .formRow { grid-template-columns: 1fr; gap: 0; }
+}
