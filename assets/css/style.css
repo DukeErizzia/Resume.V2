@@ -207,6 +207,70 @@ ul { list-style: none; }
   78% { transform: translate(9px, -1px); clip-path: inset(40% 0 35% 0); }
 }
 
+/* Main page headers: RGB split bursts (uses `translate` so the parallax transform is untouched) */
+.sectionTitle { --glow: 0 0 18px rgba(252, 238, 10, 0.25); text-shadow: var(--glow); animation: titleGlitch 3.1s steps(1) infinite; }
+.blockTitle { animation: titleGlitch 4.4s steps(1) 0.7s infinite; }
+@keyframes titleGlitch {
+  0%, 100% { text-shadow: var(--glow, 0 0 0 transparent); translate: 0 0; filter: none; }
+  12% { text-shadow: -4px 0 var(--pink), 4px 0 var(--cyan); translate: -4px 0; }
+  13% { text-shadow: 5px 0 var(--pink), -5px 0 var(--cyan); translate: 5px 1px; filter: hue-rotate(30deg); }
+  14% { text-shadow: var(--glow, 0 0 0 transparent); translate: 0 0; filter: none; }
+  46% { text-shadow: 3px 0 var(--cyan), -3px 0 var(--pink); translate: 3px 0; }
+  47% { text-shadow: var(--glow, 0 0 0 transparent); translate: 0 0; }
+  71% { text-shadow: -6px 0 var(--pink), 6px 0 var(--cyan); translate: -6px 0; filter: hue-rotate(-30deg); }
+  72% { text-shadow: 6px 0 var(--pink), -6px 0 var(--cyan); translate: 4px -1px; }
+  73% { text-shadow: var(--glow, 0 0 0 transparent); translate: 0 0; filter: none; }
+  90% { text-shadow: 2px 0 var(--pink), -2px 0 var(--cyan); translate: -2px 0; }
+  91% { text-shadow: var(--glow, 0 0 0 transparent); translate: 0 0; }
+}
+
+/* Brand logo in the header */
+.brandName { display: inline-block; animation: brandGlitch 4.6s steps(1) infinite; }
+@keyframes brandGlitch {
+  0%, 100% { translate: 0 0; text-shadow: 2px 0 var(--pink), -2px 0 var(--cyan); }
+  22% { translate: -3px 0; text-shadow: 5px 0 var(--pink), -5px 0 var(--cyan); }
+  23% { translate: 3px 1px; text-shadow: -5px 0 var(--pink), 5px 0 var(--cyan); }
+  24% { translate: 0 0; text-shadow: 2px 0 var(--pink), -2px 0 var(--cyan); }
+  71% { translate: 2px 0; text-shadow: 4px 0 var(--cyan), -4px 0 var(--pink); }
+  72% { translate: 0 0; text-shadow: 2px 0 var(--pink), -2px 0 var(--cyan); }
+}
+
+/* Small text: flicker, blinking cursor, numbers, hover bursts */
+.sectionSub { animation: textFlicker 5.2s steps(1) infinite; }
+.heroText .status { animation: textFlicker 3.3s steps(1) infinite; }
+.heroText .status::after { content: "_"; margin-left: 4px; animation: cursorBlink 1s steps(1) infinite; }
+.idCard .role { animation: textFlicker 4.4s steps(1) infinite; }
+@keyframes textFlicker {
+  0%, 100% { opacity: 1; }
+  20% { opacity: 0.35; }
+  21% { opacity: 1; }
+  22% { opacity: 0.5; }
+  23% { opacity: 1; }
+  68% { opacity: 0.4; }
+  69% { opacity: 1; }
+}
+@keyframes cursorBlink { 50% { opacity: 0; } }
+
+.navCard .num { animation: numFlicker 3.7s steps(1) infinite; }
+.navCard:nth-child(2) .num { animation-duration: 4.3s; }
+.navCard:nth-child(3) .num { animation-duration: 2.9s; }
+@keyframes numFlicker {
+  0%, 100% { opacity: 1; text-shadow: none; translate: 0 0; }
+  40% { opacity: 0.4; }
+  41% { opacity: 1; text-shadow: 3px 0 var(--cyan); }
+  42% { text-shadow: -3px 0 var(--yellow); translate: 2px 0; }
+  43% { text-shadow: none; translate: 0 0; }
+}
+
+.navCard:hover h3,
+.mainNav a:hover { animation: hoverGlitch 0.35s steps(1) infinite; }
+@keyframes hoverGlitch {
+  0% { text-shadow: 2px 0 var(--pink), -2px 0 var(--cyan); translate: 0 0; }
+  25% { text-shadow: -3px 0 var(--pink), 3px 0 var(--cyan); translate: -2px 0; }
+  50% { text-shadow: 3px 0 var(--cyan), -3px 0 var(--pink); translate: 2px 0; }
+  75% { text-shadow: -2px 1px var(--pink), 2px -1px var(--cyan); translate: 0 0; }
+}
+
 /* ---------- Panels ---------- */
 .panel {
   position: relative;
@@ -299,6 +363,8 @@ main { flex: 1; }
 .navCard h3 { font-family: var(--fontHead); font-size: 1.1rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 10px 0 8px; color: var(--yellow); }
 .navCard p { color: var(--muted); font-size: 0.95rem; margin-bottom: 14px; }
 .navCard .go { font-family: var(--fontMono); color: var(--cyan); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; }
+
+.navCard .navIcon { position: absolute; top: 30px; right: 34px; width: 44px; height: 44px; opacity: 0.9; }
 
 /* ---------- Footer ---------- */
 .siteFooter {

@@ -32,6 +32,7 @@ See below.
 * **Parallax transition**: elements marked `data-parallax="speed"` drift at a different rate than the scroll (`assets/js/script.js`).
 * **Transactional**: the contact form validates its fields and hands the message to the visitor's mail app (`mailto:`), so no backend is required.
 * **Cyberpunk theme**: neon yellow/cyan/pink palette, cut-corner panels, scanlines, glitch text, and glitch-fade page transitions.
+* **Glitch and flicker effects**: title glitch bursts, a glitching brand logo, flickering subtext and numbers, and hover glitches on navigation. All of them switch off when the visitor has "reduce motion" turned on.
 
 ### Technology
 
@@ -57,7 +58,9 @@ Resume.V2Site
 |   └─ css
 |   |   └─ style.css
 |   └─ img
-|   |   └─ photo.jpg   (add your own photo here)
+|   |   └─ favicon.svg
+|   |   └─ profilePhoto.jpg   (profile photo shown on Home)
+|   |   └─ iconAbout.svg, iconSkills.svg, iconContact.svg
 |   └─ js
 |       └─ script.js
 └─ pages
@@ -71,6 +74,7 @@ Resume.V2Site
 |     └─ assets (css/style.css, img, js/contact.js)
 |     └─ index.html
 └─ index.html
+└─ LICENSE
 └─ readme.md
 ```
 
